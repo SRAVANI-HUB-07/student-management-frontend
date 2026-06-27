@@ -4,6 +4,7 @@ import StudentList from './components/StudentList';
 import SearchStudent from './components/SearchStudent';
 import StudentForm from './components/StudentForm';
 import AIRecommendation from './components/AIRecommendation';
+import { generateAIRecommendationApi } from "./services/aiService";
 import {
   getStudents,
   addStudentApi,
@@ -167,18 +168,12 @@ function App() {
     setAiMessage("");
     setRecommendation("");
 
-    fetch("http://localhost:8080/ai/recommendation", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
+      generateAIRecommendationApi({
         studentName: aiStudentName,
         interest: interest,
         skillLevel: skillLevel,
         weeklyHours: Number(weeklyHours)
       })
-    })
       .then(response => {
         if (!response.ok) {
           throw new Error("AI recommendation failed");

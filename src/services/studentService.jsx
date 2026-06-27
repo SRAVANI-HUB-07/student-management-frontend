@@ -1,4 +1,5 @@
-const BASE_URL = "http://localhost:8080/students";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const BASE_URL = `${API_BASE_URL}/students`;
 
 export const getStudents=()=>{
     return fetch (BASE_URL);
