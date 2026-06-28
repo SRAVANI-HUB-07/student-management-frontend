@@ -1,33 +1,43 @@
-# Student Management Frontend
+# Student Management System – Frontend
 
-A React-based frontend application for the **Student Management System**. This application provides a user-friendly interface to manage students and interact with AI-powered study plan recommendations by communicating with the Spring Boot backend through REST APIs.
+A React-based frontend application for the **Student Management System** that provides an intuitive user interface for managing student records and generating AI-powered study recommendations.
 
-This project was built to understand modern frontend development concepts, component-based architecture, state management, HTTP communication, and frontend-backend integration.
-
----
-
-# Project Purpose
-
-The purpose of this project is to learn how a React frontend communicates with a backend REST API while following good software engineering practices.
-
-This project focuses on understanding:
-
-* React Component Architecture
-* React State Management
-* Props
-* Event Handling
-* Fetch API
-* HTTP Requests & Responses
-* JSON Serialization & Deserialization
-* Component Reusability
-* Service Layer Design
-* Frontend ↔ Backend Communication
-
-This application works together with the **Student Management API** backend.
+The application communicates with the Spring Boot backend using REST APIs and allows users to perform CRUD operations on student records while interacting with AI-generated study plans.
 
 ---
 
-# Technologies Used
+# Project Overview
+
+This frontend serves as the presentation layer of the Student Management System. It consumes REST APIs exposed by the Spring Boot backend and provides a responsive interface for users to manage students and generate personalized AI recommendations.
+
+The application demonstrates component-based architecture, state management, service-layer design, and frontend-backend integration.
+
+---
+
+# Features
+
+## Student Management
+
+* View All Students
+* Search Students by Name
+* Add Student
+* Update Student Information
+* Delete Student Records
+
+## AI Recommendation
+
+Generate personalized study recommendations by providing:
+
+* Student Name
+* Area of Interest
+* Skill Level
+* Weekly Study Hours
+
+The frontend sends the request to the backend API, which communicates with the OpenAI API and returns an AI-generated recommendation.
+
+---
+
+# Technology Stack
 
 ## Frontend
 
@@ -51,26 +61,23 @@ This application works together with the **Student Management API** backend.
 
 ---
 
-# Features
+# Application Architecture
 
-## Student Management
-
-* View All Students
-* Search Students
-* Add Student
-* Update Student
-* Delete Student
-
-## AI Study Plan Generator
-
-Generate a personalized four-week study plan by providing:
-
-* Student Name
-* Area of Interest
-* Skill Level
-* Weekly Study Hours
-
-The frontend sends the request to the backend API, which communicates with the OpenAI API and returns an AI-generated study plan.
+```text
+User
+   │
+   ▼
+React Components
+   │
+   ▼
+Service Layer
+   │
+   ▼
+REST APIs
+   │
+   ▼
+Spring Boot Backend
+```
 
 ---
 
@@ -99,23 +106,25 @@ src
 
 ### App.jsx
 
-Maintains application state, coordinates API calls, and manages data flow between components.
+* Maintains application state
+* Coordinates API requests
+* Manages data flow between components
 
 ### components/
 
-Contains reusable UI components responsible for rendering different parts of the user interface.
+Contains reusable UI components responsible for rendering the application interface.
 
 ### services/
 
-Contains functions responsible for communicating with the backend REST APIs using the Fetch API.
+Contains reusable functions that communicate with the backend REST APIs using the Fetch API.
 
 ---
 
 # Backend Integration
 
-This frontend communicates with the **Student Management API** backend using REST APIs.
+This frontend communicates with the Student Management System backend through REST APIs.
 
-Example endpoints include:
+Example endpoints:
 
 * `GET /students`
 * `POST /students`
@@ -127,62 +136,73 @@ Example endpoints include:
 
 # Running the Application
 
-## 1. Clone the repository
+## Clone the Repository
 
 ```bash
 git clone https://github.com/SRAVANI-HUB-07/student-management-frontend.git
+cd student-management-frontend
 ```
 
-## 2. Install dependencies
+---
+
+## Install Dependencies
 
 ```bash
 npm install
 ```
 
-## 3. Start the development server
+---
+
+## Configure Environment Variables
+
+Create a `.env` file in the project root.
+
+```text
+VITE_API_BASE_URL=http://localhost:8080
+```
+
+For production, update the value to your deployed backend URL.
+
+---
+
+## Start the Development Server
 
 ```bash
 npm run dev
 ```
 
-The application will be available at:
+The application starts on:
 
 ```text
 http://localhost:5173
 ```
 
-Ensure the Spring Boot backend is running on:
+---
 
-```text
-http://localhost:8080
-```
+# Related Repository
+
+The complete backend implementation is available here:
+
+https://github.com/SRAVANI-HUB-07/student-management-api
 
 ---
 
-# Future Improvements
+# Future Enhancements
 
 * Responsive Design
-* Better Form Validation
+* Improved Form Validation
 * Toast Notifications
 * Pagination
-* Authentication
+* Authentication & Authorization
 * Dark Mode
-* Improved UI/UX
-* Production Deployment
+* Enhanced UI/UX
 
 ---
 
-# Learning Outcomes
+# Author
 
-This project strengthened my understanding of:
+**Sravani Mamidi**
 
-* React Fundamentals
-* Component-Based Architecture
-* State Management
-* Props
-* Fetch API
-* HTTP Communication
-* JSON Processing
-* Service Layer Pattern
-* Frontend ↔ Backend Integration
-* Git & GitHub Workflow
+Master of Science in Computer Science
+
+Java • Spring Boot • React • REST APIs • AI Integration
